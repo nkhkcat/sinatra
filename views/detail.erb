@@ -7,5 +7,10 @@
 </div>
 <div>
   <a href="/memos/<%= @id %>/edit">変更</a>
-  <p>削除</p>
+  <div>
+		<form action="/memos/<%= @id %>" method="post">
+			<input type="hidden" name="_method" value="delete">
+				<button type="submit">削除</button>
+		</form>	
+	</div>
 </div>
