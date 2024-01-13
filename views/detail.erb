@@ -1,4 +1,11 @@
-<h1>詳細</h1>
 <div>
-	<a href="/memos/<%= @id %>/edit">変更</a>
+  <% memo = @data['memos'].find { |m| m['id'] == @id } %>
+	<div>
+		<p><%= memo["title"] %></p>
+		<p><%= memo["content"] %></p>
+	</div>
+</div>
+<div>
+  <a href="/memos/<%= @id %>/edit">変更</a>
+  <p>削除</p>
 </div>
