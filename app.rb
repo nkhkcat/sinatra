@@ -63,6 +63,20 @@ patch '/memos/:id' do
   redirect '/memos'
 end
 
+delete '/memos/:id' do
+  file = File.read('data.json')
+  data = JSON.parse(file)
+
+  id = params[:id]
+  data['memos'].reject! { |memo| memo['id'] == id }
+
+  File.open('data.json', 'w') do |f|
+    f.write(JSON.pretty_generate(data))
+  end
+
+  redirect '/memos'
+end
+
 get '/memos/:id/edit' do
   file = File.read('data.json')
   @data = JSON.parse(file)
