@@ -1,4 +1,9 @@
 <h1>一覧</h1>
 <% @data["memos"].each do |memo| %>
-	<p><%= memo["title"] %></td>
+	<div>
+		<a href="/memos/<%= memo["id"] %>"><%= memo["title"]%></a>
+	</div>
 <% end %>
+<div>
+	<a href="/memos/create">追加</a>
+</div>

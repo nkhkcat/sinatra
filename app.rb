@@ -7,6 +7,7 @@ require 'json'
 get '/memos' do
   file = File.read('data.json')
   @data = JSON.parse(file)
+
   erb :memos
 end
 
@@ -19,9 +20,16 @@ get '/memos/create' do
 end
 
 get '/memos/:id' do
-  @id = params[:id]
+  file = File.read('data.json')
+  @data = JSON.parse(file)
+  @id = id = params[:id]
 
-  erb :detail
+  if @data['memos'].any? { |memo| memo['id'] == id }
+    erb :detail
+  else
+    status 404
+    erb :not_found
+  end
 end
 
 patch '/memos/:id' do
