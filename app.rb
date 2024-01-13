@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'sinatra'
 require 'sinatra/reloader'
 require 'json'
@@ -9,7 +11,7 @@ get '/memos' do
 end
 
 post '/memos' do
-# TODO：新規作成処理
+  # TODO： 新規作成処理
 end
 
 get '/memos/create' do
@@ -23,7 +25,7 @@ get '/memos/:id' do
 end
 
 patch '/memos/:id' do
-  # TODO:更新処理
+  # TODO: 更新処理
 end
 
 get '/memos/:id/edit' do
