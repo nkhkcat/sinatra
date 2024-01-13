@@ -17,12 +17,12 @@ post '/memos' do
   data = JSON.parse(file)
 
   new_memo = {
-    "id" => (data["memos"].map { |memo| memo["id"].to_i }.max + 1).to_s,
-    "title" => params[:title],
-    "content" => params[:content]
+    'id' => (data['memos'].map { |memo| memo['id'].to_i }.max + 1).to_s,
+    'title' => params[:title],
+    'content' => params[:content]
   }
 
-  data["memos"].push(new_memo)
+  data['memos'].push(new_memo)
   File.open('data.json', 'w') do |f|
     f.write(JSON.pretty_generate(data))
   end
