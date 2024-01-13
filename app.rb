@@ -5,27 +5,39 @@ require 'sinatra/reloader'
 require 'sinatra/contrib'
 require 'json'
 
-get '/memos' do
+before do
   file = File.read('data.json')
   @data = JSON.parse(file)
+end
 
+helpers do
+  def read_json
+    file = File.read('data.json')
+    JSON.parse(file)
+  end
+
+  def write_json(data)
+    File.open('data.json', 'w') do |f|
+      f.write(JSON.pretty_generate(data))
+    end
+  end
+end
+
+get '/memos' do
   erb :memos
 end
 
 post '/memos' do
-  file = File.read('data.json')
-  data = JSON.parse(file)
+  data = read_json
 
   new_memo = {
     'id' => (data['memos'].map { |memo| memo['id'].to_i }.max + 1).to_s,
     'title' => params[:title],
     'content' => params[:content]
   }
-
   data['memos'].push(new_memo)
-  File.open('data.json', 'w') do |f|
-    f.write(JSON.pretty_generate(data))
-  end
+
+  write_json(data)
 
   redirect '/memos'
 end
@@ -35,8 +47,6 @@ get '/memos/create' do
 end
 
 get '/memos/:id' do
-  file = File.read('data.json')
-  @data = JSON.parse(file)
   @id = id = params[:id]
 
   if @data['memos'].any? { |memo| memo['id'] == id }
@@ -48,38 +58,30 @@ get '/memos/:id' do
 end
 
 patch '/memos/:id' do
-  file = File.read('data.json')
-  data = JSON.parse(file)
+  data = read_json
 
   id = params[:id]
   memo = data['memos'].find { |m| m['id'] == id }
   edited_memo = { 'title' => params[:title], 'content' => params[:content] }
   memo.merge!(edited_memo)
 
-  File.open('data.json', 'w') do |f|
-    f.write(JSON.pretty_generate(data))
-  end
+  write_json(data)
 
   redirect '/memos'
 end
 
 delete '/memos/:id' do
-  file = File.read('data.json')
-  data = JSON.parse(file)
+  data = read_json
 
   id = params[:id]
   data['memos'].reject! { |memo| memo['id'] == id }
 
-  File.open('data.json', 'w') do |f|
-    f.write(JSON.pretty_generate(data))
-  end
+  write_json(data)
 
   redirect '/memos'
 end
 
 get '/memos/:id/edit' do
-  file = File.read('data.json')
-  @data = JSON.parse(file)
   @id = params[:id]
 
   erb :edit
