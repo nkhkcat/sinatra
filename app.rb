@@ -36,8 +36,8 @@ post '/memos' do
 
   new_memo = {
     'id' => (data['memos'].map { |memo| memo['id'].to_i }.max + 1).to_s,
-    'title' => "#{escape_text(params[:title])}",
-    'content' => "#{escape_text(params[:content])}"
+    'title' => escape_text(params[:title]),
+    'content' => escape_text(params[:content])
   }
   data['memos'].push(new_memo)
 
@@ -66,7 +66,7 @@ patch '/memos/:id' do
 
   id = params[:id]
   memo = data['memos'].find { |m| m['id'] == id }
-  edited_memo = { 'title' => "#{escape_text(params[:title])}", 'content' => "#{escape_text(params[:content])}" }
+  edited_memo = { 'title' => escape_text(params[:title]), 'content' => escape_text(params[:content]) }
   memo.merge!(edited_memo)
 
   write_json(data)
