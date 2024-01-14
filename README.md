@@ -2,15 +2,15 @@
 nkhkcatのメモアプリです。
 
 # Installation
-必要なgemをインストールするために、以下のコマンドをターミナルで実行して下さい。 
+以下のコマンドをターミナルで実行して下さい
 ```bash
-bundle install
+git clone https://github.com/nkhkcat/sinatra.git
 ```
 
 # Usage
-メモアプリを起動するために、以下のコマンドをターミナルで実行してください。
+必要なgemをインストールし、メモアプリを起動するために、以下のコマンドをターミナルで実行してください。
 ```bash
-git clone https://github.com/nkhkcat/sinatra.git
+bundle install
 cd sinatra
 git checkout develop
 bundle exec ruby app.rb 
