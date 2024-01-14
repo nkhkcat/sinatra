@@ -1,9 +1,9 @@
 <div>
-  <form action="/memos/<%= @id %>" method="post">
+  <form action="/memos/<%= @id %>" method="post" class="flex-column-container">
     <input type="hidden" name="_method" value="patch">
     <% memo = @data['memos'].find { |m| m['id'] == @id } %>
-      <input type="text" name="title" value="<%= memo['title'] %>">
-      <textarea name="content"><%= memo['content'] %></textarea>
-      <button type="submit">更新</button>
+      <input type="text" name="title" value="<%= memo['title'] %>" class="flex-item">
+      <textarea  class="flex-item" name="content"><%= memo['content'] %></textarea>
+      <button type="submit" class="button flex-item">更新</button>
   </form>
 </div>

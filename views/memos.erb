@@ -1,8 +1,6 @@
+<div class="flex-column-container">
 <% @data["memos"].each do |memo| %>
-  <div>
-    <a href="/memos/<%= memo["id"] %>"><%= memo["title"] %></a>
-  </div>
+  <a href="/memos/<%= memo["id"] %>" class="flex-item"><%= memo["title"] %></a>
 <% end %>
-<div>
-  <a href="/memos/create">追加</a>
+<a href="/memos/create" class="button">追加</a>
 </div>
