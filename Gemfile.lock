@@ -114,6 +114,7 @@ PLATFORMS
 DEPENDENCIES
   erb_lint
   redcarpet
+  rubocop
   sinatra
   sinatra-contrib
   webrick
