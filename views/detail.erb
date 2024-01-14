@@ -1,16 +1,16 @@
 <div>
   <% memo = @data['memos'].find { |m| m['id'] == @id } %>
-	<div>
-		<p><%= memo["title"] %></p>
-		<p><%= memo["content"] %></p>
-	</div>
+  <div>
+    <p><%= memo["title"] %></p>
+    <p><%= memo["content"] %></p>
+  </div>
 </div>
 <div>
   <a href="/memos/<%= @id %>/edit">変更</a>
   <div>
-		<form action="/memos/<%= @id %>" method="post">
-			<input type="hidden" name="_method" value="delete">
-				<button type="submit">削除</button>
-		</form>	
-	</div>
+    <form action="/memos/<%= @id %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+        <button type="submit">削除</button>
+    </form>
+  </div>
 </div>
