@@ -22,7 +22,6 @@ rubocop
 ```
 
 erblintのチェックをしたい場合は、以下のコマンドをターミナルで実行してください。
-bundle exec erblint --lint-all
 ```
 bundle exec erblint --lint-all
 ```
