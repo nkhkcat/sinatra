@@ -25,11 +25,3 @@ erblintのチェックをしたい場合は、以下のコマンドをターミ�
 ```
 bundle exec erblint --lint-all
 ```
-erblintの実行時に、以下のエラーが表示される場合は、`vendor/bundle/ruby/3.2.0/gems/rubocop-1.59.0/assets/output.html`というファイルの`<meta charset='UTF-8'/>` を `<meta charset='UTF-8'>`に修正して下さい。
-
-```
-Tag `meta` is a void element, it must end with `>` and not `/>`.
-In file: vendor/bundle/ruby/3.2.0/gems/rubocop-1.59.0/assets/output.html.erb:4
-
-1 error(s) were found in ERB files
-```
