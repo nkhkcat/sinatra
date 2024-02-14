@@ -46,8 +46,8 @@ post '/memos' do
   redirect '/memos'
 end
 
-get '/memos/create' do
-  erb :create
+get '/memos/new' do
+  erb :new
 end
 
 get '/memos/:id' do

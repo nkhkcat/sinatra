@@ -2,5 +2,5 @@
 <% @data["memos"].each do |memo| %>
   <a href="/memos/<%= memo["id"] %>" class="flex-item"><%= memo["title"] %></a>
 <% end %>
-<a href="/memos/create" class="button">追加</a>
+<a href="/memos/new" class="button">追加</a>
 </div>
