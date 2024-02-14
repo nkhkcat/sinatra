@@ -46,9 +46,9 @@ get '/memos/new' do
 end
 
 get '/memos/:id' do
-  @id = id = params[:id]
+  @memo = read_json['memos'].find { |memo| memo['id'] == params[:id] }
 
-  if read_json['memos'].any? { |memo| memo['id'] == id }
+if @memo
     erb :detail
   else
     status 404
@@ -81,8 +81,7 @@ delete '/memos/:id' do
 end
 
 get '/memos/:id/edit' do
-  @id = params[:id]
-
+  @memo = read_json['memos'].find { |memo| memo['id'] == params[:id] }
   erb :edit
 end
 

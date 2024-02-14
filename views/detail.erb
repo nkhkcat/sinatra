@@ -1,14 +1,13 @@
 <div class="flex-column-container">
-  <% memo = read_json['memos'].find { |m| m['id'] == @id } %>
   <div>
-    <p class="flex-item"><%= memo["title"] %></p>
-    <p class="flex-item"><%= memo["content"] %></p>
+    <p class="flex-item"><%= @memo["title"] %></p>
+    <p class="flex-item"><%= @memo["content"] %></p>
   </div>
 </div>
 <div class="flex-row-container">
-  <a href="/memos/<%= @id %>/edit" class="button">変更</a>
+  <a href="/memos/<%= @memo["id"] %>/edit" class="button">変更</a>
   <div>
-    <form action="/memos/<%= @id %>" method="post">
+    <form action="/memos/<%= @memo["id"] %>" method="post">
       <input type="hidden" name="_method" value="delete">
         <button type="submit" class="button">削除</button>
     </form>
