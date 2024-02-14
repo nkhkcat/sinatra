@@ -1,7 +1,7 @@
 <div class="flex-column-container">
   <div>
-    <p class="flex-item"><%= @memo["title"] %></p>
-    <p class="flex-item"><%= @memo["content"] %></p>
+    <p class="flex-item"><%= escape_text(@memo["title"]) %></p>
+    <p class="flex-item"><%= escape_text(@memo["content"]) %></p>
   </div>
 </div>
 <div class="flex-row-container">
