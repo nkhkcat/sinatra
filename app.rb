@@ -5,11 +5,6 @@ require 'sinatra/reloader'
 require 'sinatra/contrib'
 require 'json'
 
-before do
-  file = File.read('data.json')
-  @data = JSON.parse(file)
-end
-
 helpers do
   def read_json
     file = File.read('data.json')
@@ -53,7 +48,7 @@ end
 get '/memos/:id' do
   @id = id = params[:id]
 
-  if @data['memos'].any? { |memo| memo['id'] == id }
+  if read_json['memos'].any? { |memo| memo['id'] == id }
     erb :detail
   else
     status 404

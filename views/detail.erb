@@ -1,5 +1,5 @@
 <div class="flex-column-container">
-  <% memo = @data['memos'].find { |m| m['id'] == @id } %>
+  <% memo = read_json['memos'].find { |m| m['id'] == @id } %>
   <div>
     <p class="flex-item"><%= memo["title"] %></p>
     <p class="flex-item"><%= memo["content"] %></p>
