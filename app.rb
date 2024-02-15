@@ -30,7 +30,7 @@ post '/memos' do
   data = read_json
 
   new_memo = {
-    'id' => (data['memos'].map { |memo| memo['id'].to_i }.max + 1).to_s,
+    'id' => (data['memos'].empty? ? 1 : data['memos'].map { |memo| memo['id'].to_i }.max + 1).to_s,
     'title' => params[:title],
     'content' => params[:content]
   }
