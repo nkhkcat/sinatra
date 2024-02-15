@@ -48,7 +48,7 @@ end
 get '/memos/:id' do
   @memo = read_json['memos'].find { |memo| memo['id'] == params[:id] }
 
-if @memo
+  if @memo
     erb :detail
   else
     status 404
