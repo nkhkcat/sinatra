@@ -1,0 +1,6 @@
+<div class="flex-column-container">
+<% read_json["memos"].each do |memo| %>
+  <a href="/memos/<%= memo["id"] %>" class="flex-item"><%= escape_text(memo["title"]) %></a>
+<% end %>
+<a href="/memos/new" class="button">追加</a>
+</div>

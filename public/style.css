@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 0;
+  background-color: #eeeeee;
+}
+
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.flex-row-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-item {
+  margin: 10px 20px;
+}
+
+/* button要素のcssをリセット */
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+}
+
+.button {
+  color: #fff;
+  background-color: #0066ff;
+  font-size: 12px;
+  padding: 10px 20px;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+  letter-spacing: 2px;
+  color: #212529;
+  border-radius: 6px;
+  color: #fff;
+  margin: 20px;
+  text-decoration: none;
+}

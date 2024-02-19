@@ -1,0 +1,8 @@
+<div>
+  <form action="/memos/<%= @memo['id'] %>" method="post" class="flex-column-container">
+    <input type="hidden" name="_method" value="patch">
+      <input type="text" name="title" value="<%= escape_text(@memo['title']) %>" class="flex-item">
+      <textarea class="flex-item" name="content"><%= escape_text(@memo['content']) %></textarea>
+      <button type="submit" class="button flex-item">更新</button>
+  </form>
+</div>
